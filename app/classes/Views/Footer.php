@@ -25,7 +25,7 @@ class Footer extends View
     public function generate()
     {
         $current_date = date('Y');
-        return "Copyright © $current_date Aidas Baublys, all rights reserved.";
+        return "Copyright © $current_date Aidas Baublys, visos teisės bei lašiniai saugomi.";
     }
 
     /**

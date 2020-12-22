@@ -1,18 +1,79 @@
 {
     "users": [
         {
-            "email": "test@test.lt",
-            "password": "test",
-            "user_name": "testas",
-            "role": "user"
+            "name": "Pispetras",
+            "surname": "Pispetrauskas",
+            "email": "pis@t.lt",
+            "password": "pist",
+            "phone": "+37042013666",
+            "address": "Saul\u0117tekio al. 15, Vilnius"
         },
         {
-            "email": "pica@skani.lt",
-            "password": "pica",
-            "user_name": "Picis",
-            "role": "admin"
+            "name": "Pisjonas",
+            "surname": "Pisjona",
+            "email": "jonas@pis.com",
+            "password": "pist",
+            "phone": "+6942013666",
+            "address": "Tavo mamoj aveneu"
+        },
+        {
+            "name": "a",
+            "surname": "a",
+            "email": "a@a.lt",
+            "password": "aaaaaaaa",
+            "phone": "",
+            "address": ""
+        },
+        {
+            "name": "b",
+            "surname": "b",
+            "email": "b@b.lt",
+            "password": "bbbbbbbb",
+            "phone": "",
+            "address": ""
+        },
+        {
+            "name": "a",
+            "surname": "a",
+            "email": "7577@qqqwqw.rr",
+            "password": "1",
+            "phone": "",
+            "address": ""
+        },
+        {
+            "name": "w",
+            "surname": "w",
+            "email": "w@w.com",
+            "password": "wwwwwwww",
+            "phone": "",
+            "address": ""
         }
     ],
-    "pizzas": [],
-    "orders": []
+    "comments": [
+        {
+            "user_id": 0,
+            "timestamp": 1607641838,
+            "comment": "Xjnia ne klubas nx"
+        },
+        {
+            "user_id": 1,
+            "timestamp": 1608641838,
+            "comment": "Negaliu atsidziaugt, jei galeciau, tai gyvenciau ten."
+        },
+        {
+            "user_id": 2,
+            "comment": "sdfsdf",
+            "timestamp": 1608670193
+        },
+        {
+            "user_id": 2,
+            "comment": "2556",
+            "timestamp": 1608670199
+        },
+        {
+            "user_id": 5,
+            "comment": "Nu wow!&#13;&#10;",
+            "timestamp": 1608670711
+        }
+    ]
 }

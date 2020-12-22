@@ -9,22 +9,24 @@ use App\Views\Forms\Common\Auth\RegisterForm;
 
 class RegisterController extends GuestController
 {
-    protected  RegisterForm $form;
+    protected RegisterForm $form;
     protected BasePage $page;
+
     public function __construct()
     {
         parent::__construct();
         $this->form = new RegisterForm();
         $this->page = new BasePage([
-            'title' => 'Register'
+            'title' => 'Reginkis Pisporto Klube'
         ]);
     }
+
     public function register()
     {
         if ($this->form->validate()) {
             $clean_inputs = $this->form->values();
             unset($clean_inputs['password_repeat']);
-            App::$db->insertRow('users', $clean_inputs + ['role' => 'user']);
+            App::$db->insertRow('users', $clean_inputs);
             header('Location: /login');
         }
         $this->page->setContent($this->form->render());

@@ -42,7 +42,7 @@ function validate_field_not_empty(string $field_value, array &$field): bool
 {
 
     if ($field_value == '') {
-        $field['error'] = 'Field must be filled';
+        $field['error'] = 'Gamta nemėgsta tuštumos, lašinuk.';
         return false;
     }
 
@@ -106,18 +106,24 @@ function validate_numeric(string $field_value, array &$field): bool
     return true;
 }
 
-
-/**
- * Check if selected value is one of the possible options in options array
- *
- * @param string $field_input
- * @param array $field
- * @return bool
- */
-function validate_select(string $field_input, array &$field): bool
+function validate_not_numeric(string $field_value, array &$field): bool
 {
-    if (!isset($field['options'][$field_input])) {
-        $field['error'] = 'Input doesn\'t exist';
+    if (preg_match('~[0-9]~', $field_value)) {
+        $field['error'] = 'Field input can not contain numbers';
+
+        return false;
+    }
+
+    return true;
+}
+
+function validate_length(string $field_value, array &$field, array $params): bool
+{
+    if (strlen($field_value) < ($params['min'] ?? 0) || strlen($field_value) > $params['max']) {
+        $field['error'] = strtr('Field input must be between @min and @max symbols!', [
+            '@min' => $params['min'] ?? 0,
+            '@max' => $params['max'],
+        ]);
 
         return false;
     }
@@ -139,24 +145,6 @@ function validate_email(string $field_value, array &$field): bool
 
         return false;
     }
-
-    return true;
-}
-
-/**
- * Check if input is valid URL
- *
- * @param string $field_value
- * @param array $field
- * @return bool
- */
-function validate_url(string $field_value, array &$field): bool
-{
-    if (!filter_var($field_value, FILTER_VALIDATE_URL)) {
-        $field['error'] = 'Input is not a valid URL';
-
-        return false;
-    };
 
     return true;
 }

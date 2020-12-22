@@ -7,7 +7,6 @@ use Core\View;
 
 class Navigation extends View
 {
-
     public function __construct()
     {
         parent::__construct($this->generate());
@@ -15,27 +14,34 @@ class Navigation extends View
 
     public function generate()
     {
-        $nav = [App::$router::getUrl('index') => 'Titulinis'];
+        $this->addLink('Sporto Namai', App::$router::getUrl('index'), 'left');
+        $this->addLink('Komentarai', App::$router::getUrl('feedback'), 'left');
 
         if (App::$session->getUser()) {
-            if (App::$session->getUser()['role'] === 'admin') {
-                return $nav + [
-                        App::$router::getUrl('admin_orders') => 'Orders',
-                        App::$router::getUrl('admin_users') => 'Users',
-                        App::$router::getUrl('logout') => 'Logout',
-                    ];
-            } else {
-                return $nav + [
-                        App::$router::getUrl('user_orders') => 'Order',
-                        App::$router::getUrl('logout') => 'Logout',
-                    ];
-            }
+            $name = App::$session->getUser()['name'];
+            $this->addLink("Atjungti ([{{$name}}]) iš kojos", App::$router::getUrl('logout'), 'right');
         } else {
-            return $nav + [
-                    App::$router::getUrl('register') => 'Register',
-                    App::$router::getUrl('login') => 'Login',
-                ];
+            $this->addLink('Registruok Savo Lašinius', App::$router::getUrl('register'), 'right');
+            $this->addLink('Prijunk Savo Lašinius', App::$router::getUrl('login'), 'right');
         }
+
+        return $this->data;
+    }
+
+    public function addLink($title, $url, $section)
+    {
+        $link = [
+            'title' => $title,
+            'url' => $url,
+        ];
+
+        if ($_SERVER['REQUEST_URI'] === $link['url']) {
+            $link['active'] = true;
+        } else {
+            $link['active'] = false;
+        }
+
+        $this->data[$section][] = $link;
     }
 
     public function render($template_path = ROOT . '/app/templates/nav.php')
