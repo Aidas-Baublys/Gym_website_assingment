@@ -4,6 +4,7 @@ const endpoints = {
     get: '/api/comment/get',
     create: '/api/comment/create',
 };
+
 /**
  * This defines how JS code selects elements by ID
  */
@@ -84,6 +85,7 @@ const forms = {
             forms.ui.errors.show(forms.create.getElement(), errors);
         }
     },
+
     /**
      * Common/Universal Form UI Functions
      */
@@ -109,6 +111,7 @@ const forms = {
                     element.className = prev;
                 }, 1000);
             },
+
         /**
          * Form-error related functionality
          */
@@ -139,6 +142,7 @@ const forms = {
                     }
                 });
             },
+
             /**
              * Hides (destroys) all errors in form
              * @param {type} form
@@ -172,6 +176,7 @@ const table = {
 
         return false;
     },
+
     /**
      * Data-Related functionality
      */
@@ -193,6 +198,7 @@ const table = {
             console.log(errors);
         }
     },
+
     /**
      * Operations with rows
      */
@@ -226,6 +232,7 @@ const table = {
 
             return row;
         },
+
         /**
          * Appends row to table from data
          *
@@ -235,6 +242,7 @@ const table = {
             console.log('Table: Creating row in table from ', data);
             table.getElement().append(this.build(data));
         },
+
         /**
          * Updates existing item in grid from data
          * Row is selected via "id" index in data
@@ -246,6 +254,7 @@ const table = {
             row.replaceWith(this.build(data));
             //row = this.build(data);
         },
+
         /**
          * Deletes existing item
          * @param {Integer} id
@@ -257,13 +266,11 @@ const table = {
     },
 };
 
-
 /**
  * Core page functionality
  */
 const app = {
     init: function () {
-        // Initialize all forms
         Object.keys(forms).forEach(formId => {
             let success = forms[formId].init();
             console.log('Initializing form "' + formId + '": ' + (success ? 'SUCCESS' : 'FAIL'));
@@ -275,5 +282,4 @@ const app = {
     }
 };
 
-// Launch App
 app.init();

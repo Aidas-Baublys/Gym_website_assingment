@@ -3,6 +3,7 @@
     <h1 class="title"><?php print $data['title']; ?></h1>
 </section>
 
+
 <!-- Constant Services -->
 <section id="services-container">
     <?php foreach ($data['services'] ?? [] as $service_id => $service): ?>

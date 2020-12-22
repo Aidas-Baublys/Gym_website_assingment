@@ -17,7 +17,7 @@ class RegisterForm extends Form
                             'validate_field_not_empty',
                             'validate_not_numeric',
                             'validate_length' => [
-                                'max' => 69,
+                                'max' => 40,
                             ],
                         ],
                         'extra' => [

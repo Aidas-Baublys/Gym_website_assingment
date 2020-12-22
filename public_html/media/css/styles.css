@@ -5,7 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Quicksand&display=swap');
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
@@ -29,7 +28,7 @@ main {
 
 h1, h3 {
     color: Pink;
-    margin: 10px;
+    margin: 10px 5px;
 }
 
 .title {
@@ -95,25 +94,11 @@ button:hover {
     color: orangered;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: orangered;
-}
-
-.modal .close {
-    color: white;
-    font-size: 50px;
-    cursor: pointer;
-}
-
 .error {
     color: aquamarine;
     font-size: .8em;
 }
+
 
 /*######################
 ##  Navigation
@@ -121,11 +106,8 @@ button:hover {
 
 nav {
     display: flex;
-    justify-content: center;
-    background-color: Red;
-    width: 100vw;
-    padding: 20px;
-    font-size: 40px;
+    justify-content: space-between;
+    width: 800px;
 }
 
 ul {
@@ -140,7 +122,6 @@ a {
     padding: 10px;
     color: Pink;
     text-decoration: none;
-    font-size: 25px;
     cursor: pointer;
     transition: 0.4s;
 }
@@ -149,15 +130,31 @@ a:hover {
     color: black;
 }
 
+nav .active {
+    color: green;
+}
+
 
 /*######################
 ##  Index Page
 ########################*/
 
+header {
+    height: 70px;
+    width: 100vw;
+    background-color: Red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .image {
     background-image: url("/media/img/Seilėtekio-Pisporto-Klubas.jfif");
     width: 100vw;
     height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #services-container {
@@ -173,16 +170,17 @@ a:hover {
 .services-item {
     width: 25%;
     height: 369px;
-    border: 1px solid black;
+    border: 1px solid grey;
 }
 
 p {
     font-size: small;
+    margin: 0 5px 5px 5px;
 }
 
 img {
     width: 100%;
-    height: 50%;
+    height: 40%;
 }
 
 .map {
